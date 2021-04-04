@@ -9,7 +9,8 @@ export const Home = () => {
       <Header>
         <HeaderTitle>Que Bola!</HeaderTitle>
       </Header>
-      <Championship />
+      <Championship title="Brasileirão" />
+      <Championship title="La Liga" />
       <GlobalStyle />
     </div>
   );
