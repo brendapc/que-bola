@@ -16,7 +16,7 @@ export const ContentSection = styled.section`
 
 export const Content = styled.div`
   height: 14rem;
-  overflow: auto;
+  overflow-y: auto;
   display: flex;
 `;
 
