@@ -1,6 +1,13 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { ContentSection, ChampionshipTitle } from "./championships-styles";
+import React, { useState } from "react";
+import {
+  ContentSection,
+  ChampionshipTitle,
+  Content,
+  ContentCard,
+  CardsWraper,
+} from "./championships-styles";
+import { Card } from "../layout-structure/styled-components/Card";
 
 const Championship = () => {
   const [title, setTitle] = useState("");
@@ -34,7 +41,16 @@ const Championship = () => {
     <div>
       <ContentSection>
         <ChampionshipTitle>{title}</ChampionshipTitle>
-        <div></div>
+        <Content>
+          <CardsWraper>
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+          </CardsWraper>
+        </Content>
       </ContentSection>
     </div>
   );

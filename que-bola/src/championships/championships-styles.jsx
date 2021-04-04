@@ -13,3 +13,22 @@ export const ContentSection = styled.section`
   margin: 2rem;
   padding: 0 1rem;
 `;
+
+export const Content = styled.div`
+  height: 14rem;
+  overflow-y: auto;
+  display: flex;
+`;
+
+export const ContentCard = styled.div`
+  width: 20rem;
+  margin: 0.5rem;
+  background: #fff;
+  border-radius: 5px;
+  text-align: center;
+  display: inline-block;
+`;
+
+export const CardsWraper = styled.div`
+  display: flex;
+`;
