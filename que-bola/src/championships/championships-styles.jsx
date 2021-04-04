@@ -26,7 +26,9 @@ export const ContentCard = styled.div`
   background: #fff;
   border-radius: 5px;
   text-align: center;
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 `;
 
 export const CardsWraper = styled.div`

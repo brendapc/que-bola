@@ -12,26 +12,31 @@ const Versus = styled.div`
   font-size: 3rem;
   color: #5ac8e9;
 `;
-const Placar = styled.h3`
+const Goals = styled.h3`
   font-size: 2rem;
+  margin: 0;
 `;
-const Teams = styled.h2`
+const Team = styled.h2`
   font-size: 1rem;
+`;
+const MatchScore = styled.div`
+  display: grid;
+  grid-template-rows: 1fr 4rem;
 `;
 export const Card = ({ matchInfo }) => {
   if (matchInfo)
     return (
       <ContentCard>
         <Standing>
-          <div>
-            <Teams>{matchInfo.homeTeam.name}</Teams>
-            <Placar>{matchInfo.score.fullTime.homeTeam}</Placar>
-          </div>
+          <MatchScore>
+            <Team>{matchInfo.homeTeam.name}</Team>
+            <Goals>{matchInfo.score.fullTime.homeTeam}</Goals>
+          </MatchScore>
           <Versus> X </Versus>
-          <div>
-            <Teams>{matchInfo.awayTeam.name}</Teams>
-            <Placar>{matchInfo.score.fullTime.awayTeam}</Placar>
-          </div>
+          <MatchScore>
+            <Team>{matchInfo.awayTeam.name}</Team>
+            <Goals>{matchInfo.score.fullTime.awayTeam}</Goals>
+          </MatchScore>
         </Standing>
         <p>Horário</p>
       </ContentCard>
