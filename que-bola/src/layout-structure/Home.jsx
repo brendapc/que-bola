@@ -1,6 +1,7 @@
 import React from "react";
 import Championship from "../championships/Championship";
 import { Header, HeaderTitle } from "./styled-components/Header";
+import { GlobalStyle } from "./GlobalStyle";
 
 export const Home = () => {
   return (
@@ -9,6 +10,7 @@ export const Home = () => {
         <HeaderTitle>Que Bola!</HeaderTitle>
       </Header>
       <Championship />
+      <GlobalStyle />
     </div>
   );
 };
