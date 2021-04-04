@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import Home from "./project-components/Home";
+import { Home } from "./layout-structure/Home";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -9,4 +9,3 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById("root")
 );
-
