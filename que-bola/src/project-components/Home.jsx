@@ -1,7 +1,14 @@
 import React from "react";
+import { Header, HeaderTitle } from "./styledComponents/Header";
 
 const Home = () => {
-  return <div><h1>Home</h1></div>;
+  return (
+    <div>
+      <Header>
+        <HeaderTitle>Que Bola!</HeaderTitle>
+      </Header>
+    </div>
+  );
 };
 
 export default Home;
