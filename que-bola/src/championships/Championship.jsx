@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   ContentSection,
   ChampionshipTitle,
@@ -11,8 +11,10 @@ import { Card } from "../layout-structure/styled-components/Card";
 
 const Championship = () => {
   const [title, setTitle] = useState("");
-  async function getData() {
-    const response = await axios.get(
+  const [data, setData] = useState([]);
+
+  const getData = async () => {
+    /*  const response = await axios.get(
       "https://api.football-data.org/v2/competitions/PL/",
       {
         headers: {
@@ -22,9 +24,9 @@ const Championship = () => {
     );
     setTitle(response.data.name);
     const currentMatchday = response.data.currentSeason.currentMatchday;
-
+ */
     const matchdayData = await axios.get(
-      `http://api.football-data.org/v2/competitions/PL/matches/?matchday=${currentMatchday}`,
+      `http://api.football-data.org/v2/competitions/PL/matches/?matchday=${30}`,
       {
         headers: {
           "X-Auth-Token": `a3929fb8a1504c7cae89035aa6535b62`,
@@ -32,23 +34,21 @@ const Championship = () => {
       }
     );
     const matches = matchdayData.data.matches;
-    console.log(matchdayData.data.matches);
+    setData(matches);
     return matches;
-  }
-  const matchesArray = getData();
+  };
+
+  useEffect(() => {
+    getData();
+  }, [getData]);
 
   return (
     <div>
       <ContentSection>
-        <ChampionshipTitle>{title}</ChampionshipTitle>
+        <ChampionshipTitle>Premiere League</ChampionshipTitle>
         <Content>
           <CardsWraper>
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
+            {data.length > 1 && data.map((match) => <Card matchInfo={match} />)}
           </CardsWraper>
         </Content>
       </ContentSection>
