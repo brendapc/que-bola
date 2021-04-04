@@ -5,7 +5,7 @@ export const ChampionshipTitle = styled.h1`
 `;
 
 export const ContentSection = styled.section`
-  background: #b5b6b9;
+  background: #e5e4e2;
   border: 2px solid black;
   border-radius: 10px;
   height: 20rem;
