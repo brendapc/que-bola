@@ -39,6 +39,7 @@ const Hour = styled.p`
 
 export const Card = ({ matchInfo }) => {
   const [time, setTime] = useState("");
+
   useEffect(() => {
     const dateUTC = new Date(matchInfo.utcDate);
     const dateLocaled = new Date(dateUTC.toString());
@@ -47,7 +48,8 @@ export const Card = ({ matchInfo }) => {
         dateLocaled.getMinutes().length > 1 ? dateLocaled.getMinutes() : "00"
       }`
     );
-  }, []);
+  }, [matchInfo.utcDate]);
+
   const homeLogo = `https://crests.football-data.org/${matchInfo.awayTeam.id}.svg`;
   const awayLogo = `https://crests.football-data.org/${matchInfo.homeTeam.id}.svg`;
   if (matchInfo)
