@@ -10,7 +10,7 @@ const Standing = styled.div`
 
 const Versus = styled.div`
   font-size: 3rem;
-  color: #5ac8e9;
+  color: #53565A;
   align-self: center;
 `;
 const Goals = styled.h3`
