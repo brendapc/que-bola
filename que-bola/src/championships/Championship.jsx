@@ -31,15 +31,7 @@ const Championship = ({ championship }) => {
         },
       }
     );
-  /*   const teste = await axios.get(
-      `http://api.football-data.org/v2/matches`,
-      {
-        headers: {
-          "X-Auth-Token": `a3929fb8a1504c7cae89035aa6535b62`,
-        },
-      }
-    );
-    console.log(teste); */
+
     const matches = matchdayData.data.matches;
     setData(matches);
     return matches;
