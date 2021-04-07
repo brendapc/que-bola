@@ -4,7 +4,6 @@ import {
   ContentSection,
   ChampionshipTitle,
   Content,
-  ContentCard,
   CardsWraper,
 } from "./championships-styles";
 import { Card } from "../layout-structure/styled-components/Card";
@@ -24,7 +23,6 @@ const Championship = ({ championship }) => {
     );
     setTitle(response.data.name);
     const currentMatchday = response.data.currentSeason.currentMatchday;
-
     const matchdayData = await axios.get(
       `http://api.football-data.org/v2/competitions/${championship}/matches/?matchday=${currentMatchday}`,
       {
@@ -33,14 +31,15 @@ const Championship = ({ championship }) => {
         },
       }
     );
-   /*  const withSeason = await axios.get(
-      `http://api.football-data.org/v2/competitions/${championship}/matches/?matchday=${currentMatchday}&season=${2020}`,
+  /*   const teste = await axios.get(
+      `http://api.football-data.org/v2/matches`,
       {
         headers: {
           "X-Auth-Token": `a3929fb8a1504c7cae89035aa6535b62`,
         },
       }
-    ); */
+    );
+    console.log(teste); */
     const matches = matchdayData.data.matches;
     setData(matches);
     return matches;

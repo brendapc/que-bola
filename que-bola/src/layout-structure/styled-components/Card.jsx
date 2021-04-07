@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { ContentCard } from "../../championships/championships-styles";
+import { ModalComponent } from "./ModalComponent";
 
 const Standing = styled.div`
   padding: 0 1rem;
@@ -10,7 +11,7 @@ const Standing = styled.div`
 
 const Versus = styled.div`
   font-size: 3rem;
-  color: #53565A;
+  color: #53565a;
   align-self: center;
 `;
 const Goals = styled.h3`
@@ -39,7 +40,7 @@ const Hour = styled.p`
 
 export const Card = ({ matchInfo }) => {
   const [time, setTime] = useState("");
-
+  const [modalPhoto, setModalPhoto] = React.useState(false);
   useEffect(() => {
     const dateUTC = new Date(matchInfo.utcDate);
     const dateLocaled = new Date(dateUTC.toString());
@@ -50,26 +51,35 @@ export const Card = ({ matchInfo }) => {
     );
   }, [matchInfo.utcDate]);
 
+  function handleOpenModal() {
+    console.log("click");
+    setModalPhoto(true);
+  }
+
   const homeLogo = `https://crests.football-data.org/${matchInfo.awayTeam.id}.svg`;
   const awayLogo = `https://crests.football-data.org/${matchInfo.homeTeam.id}.svg`;
   if (matchInfo)
-    return (
-      <ContentCard>
-        <Standing>
-          <MatchScore>
-            <Team>{matchInfo.homeTeam.name}</Team>
-            <Img src={awayLogo} alt="" />
-            <Goals>{matchInfo.score.fullTime.homeTeam}</Goals>
-          </MatchScore>
-          <Versus> X </Versus>
-          <MatchScore>
-            <Team>{matchInfo.awayTeam.name}</Team>
-            <Img src={homeLogo} alt="" />
-            <Goals>{matchInfo.score.fullTime.awayTeam}</Goals>
-          </MatchScore>
-        </Standing>
-        <Hour>{time}</Hour>
-      </ContentCard>
+  return (
+    <>
+    {modalPhoto && <ModalComponent setModalPhoto={setModalPhoto} />}
+        {/* <ModalComponent setModalPhoto={setModalPhoto} /> */}
+        <ContentCard>
+          <Standing>
+            <MatchScore onClick={handleOpenModal}>
+              <Team>{matchInfo.homeTeam.name}</Team>
+              <Img src={awayLogo} alt="" />
+              <Goals>{matchInfo.score.fullTime.homeTeam}</Goals>
+            </MatchScore>
+            <Versus> X </Versus>
+            <MatchScore onClick={handleOpenModal}>
+              <Team>{matchInfo.awayTeam.name}</Team>
+              <Img src={homeLogo} alt="" />
+              <Goals>{matchInfo.score.fullTime.awayTeam}</Goals>
+            </MatchScore>
+          </Standing>
+          <Hour>{time}</Hour>
+        </ContentCard>
+      </>
     );
   else {
     return;
