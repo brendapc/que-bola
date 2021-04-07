@@ -1,4 +1,4 @@
-# Que bola!
+# Score it!
 catch up with the most important soccer championships 
 
 Developed by Brenda Pereira,
